@@ -1,0 +1,40 @@
+created:
+    - database/factories/OwnerFactory.php
+    - database/factories/ClientFactory.php
+    - database/factories/TypeFactory.php
+    - database/factories/BoatFactory.php
+    - database/factories/GalleryFactory.php
+    - database/factories/RatingFactory.php
+    - database/factories/FavouriteFactory.php
+    - database/factories/AvailavilityFactory.php
+    - database/factories/ReservationFactory.php
+    - database/migrations/2021_07_21_113656_create_owners_table.php
+    - database/migrations/2021_07_21_113657_create_clients_table.php
+    - database/migrations/2021_07_21_113658_create_types_table.php
+    - database/migrations/2021_07_21_113659_create_boats_table.php
+    - database/migrations/2021_07_21_113700_create_galleries_table.php
+    - database/migrations/2021_07_21_113701_create_ratings_table.php
+    - database/migrations/2021_07_21_113702_create_favourites_table.php
+    - database/migrations/2021_07_21_113703_create_availavilities_table.php
+    - database/migrations/2021_07_21_113704_create_reservations_table.php
+    - database/migrations/2021_07_21_113705_create_boat_reservation_table.php
+    - app/Models/Owner.php
+    - app/Models/Client.php
+    - app/Models/Type.php
+    - app/Models/Boat.php
+    - app/Models/Gallery.php
+    - app/Models/Rating.php
+    - app/Models/Favourite.php
+    - app/Models/Availavility.php
+    - app/Models/Reservation.php
+models:
+    Models\User: { email: string, email_verified_at: 'datetime nullable', password: string, first_name: string, last_name: string, phone: string, address: string, photo: 'string nullable', roles: text, remember_token: 'string:100 nullable' }
+    Owner: { extras: string, user_id: 'id foreign:users', avatar: string }
+    Client: { extras: string, user_id: 'id foreign:users', avatar: string }
+    Type: { name: string, relationships: { hasMany: Boat } }
+    Boat: { title: string, description: longtext, price: 'decimal:8,2', capacity: integer, coord: 'string:400', published_at: 'nullable timestamp', owner_id: 'id foreign:users', type_id: 'id foreign:types', relationships: { hasMany: Reservation } }
+    Gallery: { path: string, boat_id: 'id foreign:boats' }
+    Rating: { rate: integer, client_id: 'id foreign:users', boat_id: 'id foreign:boats' }
+    Favourite: { client_id: 'id foreign:users', boat_id: 'id foreign:boats' }
+    Availavility: { available_days: json, boat_id: 'id foreign:boats' }
+    Reservation: { amount: 'decimal:8,2', client_id: 'id foreign:users', relationships: { belongsToMany: Boat } }

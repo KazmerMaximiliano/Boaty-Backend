@@ -1,0 +1,58 @@
+models:
+
+  Owner:
+    extras: string
+    user_id: id foreign:users
+    avatar: string
+
+  Client:
+    extras: string
+    user_id: id foreign:users
+    avatar: string
+
+  Type:
+    name: string
+    relationships:
+      hasMany: Boat
+
+  Boat:
+    title: string
+    description: longtext
+    price: decimal:8,2
+    capacity: integer
+    coord: string:400
+    published_at: nullable timestamp
+    owner_id: id foreign:users
+    type_id: id foreign:types
+    relationships:
+      hasMany: Reservation
+
+
+  Gallery:
+    path: string
+    boat_id: id foreign:boats
+
+  Rating:
+    rate: integer
+    client_id: id foreign:users
+    boat_id: id foreign:boats
+
+  Favourite:
+    client_id: id foreign:users
+    boat_id: id foreign:boats
+
+  Availavility:
+    available_days: json
+    boat_id: id foreign:boats
+
+  Reservation:
+    amount: decimal:8,2
+    client_id: id foreign:users
+    relationships:
+      belongsToMany: Boat
+
+  Debt:
+    status: integer
+    description: string
+    relationships:
+      belogsToOne: Reservation
