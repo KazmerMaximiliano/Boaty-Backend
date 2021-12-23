@@ -26,5 +26,18 @@ class UsersTableSeeder extends Seeder
             "photo"            => '/img/users/noimage.png',
             'crypto_address'   => '-',
         ]);
+
+        User::create([
+            "email"            => 'googletest@google.com',
+            "password"         =>  bcrypt('GoOglEt3st?'),
+            "first_name"       => 'Boaty',
+            "last_name"        => 'Boaty',
+            'roles'            => ['admin','owner','client'],
+            "phone"            => '-',
+            "address"          => '-',
+            "birthday"         => '01/01/1990',
+            "photo"            => '/img/users/noimage.png',
+            'crypto_address'   => '-',
+        ]);
     }
 }
