@@ -32,6 +32,7 @@ class User extends Authenticatable
         'photo',
         'roles',
         'preferences',
+        'crypto_currency',
         'crypto_address'
     ];
     protected $appends = ['favourites'];

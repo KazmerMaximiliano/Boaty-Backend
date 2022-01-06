@@ -25,6 +25,7 @@ class UsersTableSeeder extends Seeder
             "birthday"         => '01/01/1990',
             "photo"            => '/img/users/noimage.png',
             'crypto_address'   => '-',
+            'crypto_currency'  => '-',
         ]);
 
         User::create([
@@ -38,6 +39,7 @@ class UsersTableSeeder extends Seeder
             "birthday"         => '01/01/1990',
             "photo"            => '/img/users/noimage.png',
             'crypto_address'   => '-',
+            'crypto_currency'  => '-',
         ]);
     }
 }

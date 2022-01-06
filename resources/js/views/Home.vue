@@ -65,6 +65,7 @@
                     href="auth/google"
                     color="secondary"
                     tile
+                    text
                     elevation="0"
                   >
                     <v-icon left>
@@ -78,6 +79,7 @@
                     href="auth/facebook"
                     color="secondary"
                     tile
+                    text
                     elevation="0"
                   >
                     <v-icon left>

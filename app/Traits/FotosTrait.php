@@ -51,10 +51,10 @@ trait FotosTrait
         $photos = json_decode($request->photos);
 
         foreach($photos as $file)
-        {            
+        {
             $img_url = "boat-".$this->generateRandomString().$this->getOriginalExtension($file);
             $path = public_path().'/img/boats/' . $img_url;
-            Image::make(base64_decode($file))->save($path); 
+            Image::make(base64_decode($file))->save($path);
 
             $res[] = '/img/boats/' . $img_url;
         }
