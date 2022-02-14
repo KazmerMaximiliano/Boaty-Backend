@@ -58,7 +58,7 @@
                   >
                 </v-row>
               </v-form>
-              <v-divider class="mt-6 mb-2"></v-divider>
+              <!-- <v-divider class="mt-6 mb-2"></v-divider>
               <v-row justify="space-around">
                 <v-col cols="auto">
                   <v-btn
@@ -88,7 +88,7 @@
                     Facebook
                   </v-btn>
                 </v-col>
-              </v-row>
+              </v-row> -->
             </v-col>
           </v-row>
         </v-card-text>
