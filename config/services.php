@@ -52,3 +52,4 @@ return [
         'redirect' => env('APP_URL').'/auth/facebook/callback',
     ],
 ];
+
