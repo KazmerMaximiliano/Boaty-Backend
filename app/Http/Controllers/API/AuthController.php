@@ -110,6 +110,26 @@ class AuthController extends Controller
         return $user->createToken($user->first_name . ' ' . $user->email . ' - ' .date('l jS \of F Y h:i:s A'))->plainTextToken;
     }
 
+    public function apple(Request $request){
+        $request->validate([
+            'email' => 'required',
+            'name' => 'required',
+        ]);
+
+        $user = User::firstOrCreate(
+            ['email' => $$request->email],
+            [
+                'email_verified_at' => now(),
+                'first_name' => $request->name,
+                'last_name' => $request->name,
+                'photo' => '/img/users/noimage.png',
+                'roles' => ['client'],
+            ]
+        );
+
+        return $user->createToken($user->first_name . ' ' . $user->email . ' - ' .date('l jS \of F Y h:i:s A'))->plainTextToken;
+    }
+
     public function facebook(Request $request){
         $socialiteUser = Socialite::driver('facebook')->stateless()->userFromToken($request->token);
 

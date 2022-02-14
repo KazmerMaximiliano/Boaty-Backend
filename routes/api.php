@@ -10,6 +10,7 @@ Route::post('logout', [App\Http\Controllers\API\AuthController::class, 'apiLogou
 // SOCIAL AUTH
 Route::post('auth/google', [App\Http\Controllers\API\AuthController::class, 'google']);
 Route::post('auth/facebook', [App\Http\Controllers\API\AuthController::class, 'facebook']);
+Route::post('auth/apple', [App\Http\Controllers\API\AuthController::class, 'apple']);
 
 // BOATS
 Route::get('boats/{search?}', [App\Http\Controllers\API\BoatController::class, 'index']);
