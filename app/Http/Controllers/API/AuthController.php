@@ -112,6 +112,7 @@ class AuthController extends Controller
 
     public function facebook(Request $request){
         $socialiteUser = Socialite::driver('facebook')->stateless()->userFromToken($request->token);
+	return $socialiteUser;
 
         $user = User::firstOrCreate(
             ['email' => $socialiteUser->email],
