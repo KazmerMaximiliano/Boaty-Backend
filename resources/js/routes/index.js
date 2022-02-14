@@ -5,6 +5,7 @@ import Welcome from '../views/Welcome'
 import NotFound from '../views/NotFound'
 import AccessDenied from '../views/AccessDenied'
 import Profile from '../views/Profile'
+import Legal from '../views/Legal'
 import Dev from '../views/Dev'
 
 // Users
@@ -62,6 +63,11 @@ export default new Router({
         permission: 'authenticated',
         redirect: 'home'
       }
+    },
+    {
+      path: '/legal',
+      name: 'legal',
+      component: Legal
     },
     {
       path: '/dev',
