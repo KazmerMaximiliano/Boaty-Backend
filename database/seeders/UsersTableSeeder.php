@@ -41,5 +41,19 @@ class UsersTableSeeder extends Seeder
             'crypto_address'   => '-',
             'crypto_currency'  => '-',
         ]);
+
+        User::create([
+            "email"            => 'appletest@apple.com',
+            "password"         =>  bcrypt('A02p10P20l22E?'),
+            "first_name"       => 'Boaty',
+            "last_name"        => 'Boaty',
+            'roles'            => ['admin','owner','client'],
+            "phone"            => '-',
+            "address"          => '-',
+            "birthday"         => '01/01/1990',
+            "photo"            => '/img/users/noimage.png',
+            'crypto_address'   => '-',
+            'crypto_currency'  => '-',
+        ]);
     }
 }
