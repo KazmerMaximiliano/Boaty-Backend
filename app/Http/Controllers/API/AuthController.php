@@ -117,7 +117,7 @@ class AuthController extends Controller
         ]);
 
         $user = User::firstOrCreate(
-            ['email' => $$request->email],
+            ['email' => $request->email],
             [
                 'email_verified_at' => now(),
                 'first_name' => $request->name,
