@@ -92,19 +92,21 @@ class PaymentController extends Controller
             'reservation_id'    =>$reservation->id,
         ]);
 
-        $debt = DB::transaction(function () use ($debt) {
-            $reservation = Reservation::find($debt->reservation_id);
-            return Debt::create([
-                'status'            => 0,
-                'amount'            => ($reservation->amount) - ($reservation->amount)*0.2,
-                'payment_method'    => $debt->payment_method,
-                'wallet_id'         => $debt->wallet_id,
-                'concept'           => 'Pago por reservacion del bote '.$reservation->id,
-                'creditor'          => $reservation->boat->owner_id,
-                'debtor'            => 1,
-                'reservation_id'    => $reservation->id,
-            ]);
-        });
+        if ($reservation->boat->owner_id != auth('sanctum')->id()) {
+            $debt = DB::transaction(function () use ($debt) {
+                $reservation = Reservation::find($debt->reservation_id);
+                return Debt::create([
+                    'status'            => 0,
+                    'amount'            => ($reservation->amount) - ($reservation->amount)*0.2,
+                    'payment_method'    => $debt->payment_method,
+                    'wallet_id'         => $debt->wallet_id,
+                    'concept'           => 'Pago por reservacion del bote '.$reservation->id,
+                    'creditor'          => $reservation->boat->owner_id,
+                    'debtor'            => 1,
+                    'reservation_id'    => $reservation->id,
+                ]);
+            });
+        }
 
         return $this->jsonResponse(__('crud.store.success'), new TransactionResource($trans));
     }
@@ -144,19 +146,22 @@ class PaymentController extends Controller
             'reservation_id'    =>$reservation->id,
         ]);
 
-        $debt = DB::transaction(function () use ($debt) {
-            $reservation = Reservation::find($debt->reservation_id);
-            return Debt::create([
-                'status'            => 0,
-                'amount'            => ($reservation->amount) - ($reservation->amount)*0.2,
-                'payment_method'    => $debt->payment_method,
-                'wallet_id'         => $debt->wallet_id,
-                'concept'           => 'Pago por reservacion del bote '.$reservation->id,
-                'creditor'          => $reservation->boat->owner_id,
-                'debtor'            => 1,
-                'reservation_id'    => $reservation->id,
-            ]);
-        });
+        if ($reservation->boat->owner_id != auth('sanctum')->id()) {
+            $debt = DB::transaction(function () use ($debt) {
+                $reservation = Reservation::find($debt->reservation_id);
+                    return Debt::create([
+                        'status'            => 0,
+                        'amount'            => ($reservation->amount) - ($reservation->amount)*0.2,
+                        'payment_method'    => $debt->payment_method,
+                        'wallet_id'         => $debt->wallet_id,
+                        'concept'           => 'Pago por reservacion del bote '.$reservation->id,
+                        'creditor'          => $reservation->boat->owner_id,
+                        'debtor'            => 1,
+                        'reservation_id'    => $reservation->id,
+                    ]);
+            });
+
+        }
 
         return $this->jsonResponse(__('crud.store.success'), new TransactionResource($trans));
     }

@@ -15,10 +15,10 @@ class UsersTableSeeder extends Seeder
     public function run()
     {
         User::create([
-            "email"            => 'boaty@boaty.com',
-            "password"         =>  bcrypt('ZuP3r4Dm1NB04Ty#'),
-            "first_name"       => 'Boaty',
-            "last_name"        => 'Boaty',
+            "email"            => 'admin@boaty.com',
+            "password"         =>  bcrypt('admin'),
+            "first_name"       => 'Jhon',
+            "last_name"        => 'Doe',
             'roles'            => ['admin','owner','client'],
             "phone"            => '-',
             "address"          => '-',
@@ -29,11 +29,11 @@ class UsersTableSeeder extends Seeder
         ]);
 
         User::create([
-            "email"            => 'googletest@google.com',
-            "password"         =>  bcrypt('GoOglEt3st?'),
-            "first_name"       => 'Boaty',
-            "last_name"        => 'Boaty',
-            'roles'            => ['admin','owner','client'],
+            "email"            => 'propietario@boaty.com',
+            "password"         =>  bcrypt('owner'),
+            "first_name"       => 'Demi',
+            "last_name"        => 'Moore',
+            'roles'            => ['admin', 'owner', 'client'],
             "phone"            => '-',
             "address"          => '-',
             "birthday"         => '01/01/1990',
@@ -43,11 +43,11 @@ class UsersTableSeeder extends Seeder
         ]);
 
         User::create([
-            "email"            => 'appletest@apple.com',
-            "password"         =>  bcrypt('A02p10P20l22E?'),
-            "first_name"       => 'Boaty',
-            "last_name"        => 'Boaty',
-            'roles'            => ['admin','owner','client'],
+            "email"            => 'cliente@boaty.com',
+            "password"         =>  bcrypt('cliente'),
+            "first_name"       => 'Cindy',
+            "last_name"        => 'Crawford',
+            'roles'            => ['client'],
             "phone"            => '-',
             "address"          => '-',
             "birthday"         => '01/01/1990',
